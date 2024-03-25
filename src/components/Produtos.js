@@ -24,10 +24,10 @@ const Produto = ({imagem, titulo, preco, id}) => {
     }
 
     return (
-        <div className="bg-gray-100 p-4 rounded-lg flex flex-col">
-            <img src={imagem} className="shadow-lg"/>
-            <p className="text-center text-lg font-semibold pt-5">{titulo}</p>
-            <p className="text-center text-2xl text-[#313131] p-5">R$ {preco}</p>
+        <div className="bg-white dark:bg-[#1F1B24]  p-4 rounded-lg flex flex-col">
+            <img src={imagem} className="shadow-lg dark:bg-[#ebebeb]"/>
+            <p className="text-center text-lg font-semibold pt-5 dark:text-[#ebebeb]">{titulo}</p>
+            <p className="text-center text-2xl text-[#313131] p-5 dark:text-[#ebebeb]">R$ {preco}</p>
             <button onClick={() => enviarMensagem(id, titulo, preco)} className="bg-[#F5A53B] py-3 px-8 rounded-lg font-bold text-white hover:bg-[#6319C4]">Comprar</button>
         </div>
     );
