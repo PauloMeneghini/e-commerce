@@ -1,5 +1,5 @@
 import React from "react";
-import Produto from "../../components/Produtos";
+import Produto from "../components/Produtos";
 //import CarouselProdutos from "../../components/CarouselProdutos";
 
 const MainEcommerce = () => {
