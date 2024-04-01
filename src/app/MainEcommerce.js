@@ -2,7 +2,6 @@
 import React, { useEffect, useState } from "react";
 import Produto from "../components/Produtos";
 import axios from "axios";
-import { response } from "express";
 
 
 const MainEcommerce = () => {
@@ -50,11 +49,11 @@ const MainEcommerce = () => {
         }
     }*/
 
-    async function fetchData() {
+    /*async function fetchData() {
         try {            
             const resposta = await axios.get('http://localhost:8000/api/products')
 
-            //console.log("API: ", resposta.data)
+            console.log("API: ", resposta.data)
     
             return resposta.data
     
@@ -65,7 +64,9 @@ const MainEcommerce = () => {
     
     let produtos = fetchData()
 
-    console.log('Produtos: ', produtos)
+    console.log('Produtos: ', produtos)*/
+
+
 
     // axios.get('http://localhost:8000/api/products')
     // .then(response => {
@@ -89,17 +90,36 @@ const MainEcommerce = () => {
         {imagem: "/imagens/roupas.png", titulo: "Produto 7", preco: "99,90"}
     ];*/
 
+    const [dados, setDados] = useState(null);
+
+    useEffect(() => {
+        // Função assíncrona para buscar os dados da API
+        async function fetchData() {
+        try {
+            const resposta = await axios.get('http://localhost:8000/api/products');
+            setDados(resposta.data);
+        } catch (erro) {
+            console.error('Erro ao buscar dados da API:', erro);
+        }
+        }
+
+        // Chama a função para buscar os dados da API
+        fetchData();
+    }, []); // O array vazio assegura que a função seja chamada apenas uma vez, ao montar o componente
+
     return (
         <div className="font-sans container py-8 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 max-[600px]:w-15">
             <h1 className="text-3xl font-bold mb-4">Nossos Produtos</h1>
             <div className="grid grid-cols-6 gap-4 max-[1000px]:flex max-[600px]:flex-col">
                 
-                {/* {produtos.map((produto, index) => (
+                {dados !== null && dados.map((produto, index) => (
                     <Produto key={index} id={index} {...produto} />
-                ))} */}
+                    //console.log('Dados do produto:', produto)
+                ))} 
 
             </div>
         </div>
+
     );
 }
 

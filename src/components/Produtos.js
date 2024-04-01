@@ -1,7 +1,9 @@
 'use client';
 import React from "react";
 
-const Produto = ({imagem, titulo, preco, id}) => {
+const Produto = ({image, title, value, id}) => {
+
+    const price = value.toFixed(2)
 
     const enviarMensagem = (chave, titulo, preco) => {
         const numero = '5519996169316'; // Número de telefone (com o código do país, sem o sinal de "+")
@@ -25,10 +27,10 @@ const Produto = ({imagem, titulo, preco, id}) => {
 
     return (
         <div className="bg-white dark:bg-[#1F1B24]  p-4 rounded-lg flex flex-col">
-            <img src={imagem} className="shadow-lg dark:bg-[#ebebeb]"/>
-            <p className="text-center text-lg font-semibold pt-5 dark:text-[#ebebeb]">{titulo}</p>
-            <p className="text-center text-2xl text-[#313131] p-5 dark:text-[#ebebeb]">R$ {preco}</p>
-            <button onClick={() => enviarMensagem(id, titulo, preco)} className="bg-[#F5A53B] py-3 px-8 rounded-lg font-bold text-white hover:bg-[#6319C4]">Comprar</button>
+            <img src={image} className="shadow-lg dark:bg-[#ebebeb]"/>
+            <p className="text-center text-lg font-semibold pt-5 dark:text-[#ebebeb]">{title}</p>
+            <p className="text-center text-2xl text-[#313131] p-5 dark:text-[#ebebeb]">R$ {price}</p>
+            <button onClick={() => enviarMensagem(id, title, price)} className="bg-[#F5A53B] py-3 px-8 rounded-lg font-bold text-white hover:bg-[#6319C4]">Comprar</button>
         </div>
     );
 }
