@@ -5,7 +5,7 @@ const Produto = ({imagem, titulo, preco, id}) => {
 
     const enviarMensagem = (chave, titulo, preco) => {
         const numero = '5519996169316'; // Número de telefone (com o código do país, sem o sinal de "+")
-        const mensagem = `Olá, tudo bem?, estou interessado(a) no produto ${titulo}, no valor de R$ ${preco}`; // Mensagem que será enviada
+        const mensagem = `Olá, tudo bem? Estou interessado(a) no produto ${titulo}, no valor de R$ ${preco}`; // Mensagem que será enviada
     
         // Formatar a mensagem para que seja uma URL válida
         const mensagemFormatada = encodeURIComponent(mensagem);
